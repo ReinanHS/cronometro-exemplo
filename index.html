@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <style>
+        body{
+            background: #333;
+            color: springgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div>
+            <h1>
+                <img src="https://image.freepik.com/fotos-gratis/masculino-mao-segure-o-cronometro-analogico-em-um-fundo-preto-close-up-isolar-copia-espaco_94132-223.jpg" alt="Cronometro"
+                height="100px" width="100px">
+            </h1>
+            <h2>Cronometro do Gusta.</h2>
+            <h2 id="cron">00:00</h2>
+            <input type="button" value="Começar" onclick="(function(){
+                    function a(){
+                        this.segundos = 0
+                        this.minutos = 0
+                        setInterval(()=>{
+                        segundos++ 
+                        let cron = document.getElementById('cron')
+                        
+                    
+                        if(segundos < 10){
+                            cron.innerHTML = `0${minutos}:0${segundos} `
+                        }
+                        else if(segundos < 60 ){
+                            cron.innerHTML = `0${minutos}:${segundos} `
+                        }
+                        else if(segundos > 60){
+                            minutos++
+                            segundos = 0
+                        }
+                        }
+                    ,1000)}
+                    a()
+                    
+                })()">
+        </div>
+    </center>
+
+</body>
+
+</html>
