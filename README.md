@@ -1,2 +1,3 @@
-# cronometro
-Um cronometro feito com HTML e Javascript
+# stopwatch
+A timer made with HTML, CSS and Javascript!
+xD
