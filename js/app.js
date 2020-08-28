@@ -48,6 +48,8 @@ window.addEventListener('load', function () {
             btnStart.innerText = 'Resetar'
             watch()
         }, 1000)
+
+        btnPause.style.display = 'initial'
     })
 
     btnPause.addEventListener('click', () => {
@@ -55,7 +57,16 @@ window.addEventListener('load', function () {
 
         if (cron.dataset.watch == 'true') {
             btnPause.innerText = 'Pausa'
+
+            btnPause.classList.remove('btn-unpause')
+            btnPause.classList.add('btn-pause')
+            
             watch()
-        } else btnPause.innerText = 'Retomar'
+        } else {
+            btnPause.innerText = 'Retomar'
+
+            btnPause.classList.remove('btn-pause')
+            btnPause.classList.add('btn-unpause')
+        }
     })
 })

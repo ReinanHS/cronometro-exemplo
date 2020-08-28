@@ -1,4 +1,139 @@
-body{
-  background: #333;
-  color: springgreen;
+* {
+  padding: 0;
+  margin : 0;
+}
+
+body {
+  background: #eee;
+  overflow  : hidden;
+}
+
+.container {
+  max-width    : 960px;
+  padding-right: 15px;
+  padding-left : 15px;
+  margin-right : auto;
+  margin-left  : auto;
+}
+
+.d-flex {
+  display        : flex;
+  justify-content: center;
+  flex-direction : column;
+  align-items    : center;
+}
+
+.btn {
+  cursor          : pointer;
+  font-weight     : 400;
+  text-align      : center;
+  padding         : .5rem 1rem;
+  font-size       : 1.25rem;
+  line-height     : 1.5;
+  border-radius   : .3rem;
+  background-color: transparent;
+  border          : 1px solid transparent;
+  transition      : color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-start {
+  color       : #eac757;
+  border-color: #eac757;
+}
+
+.btn-start:hover {
+  color           : #fff;
+  background-color: #eac757;
+  border-color    : #eac757;
+}
+
+.btn-pause {
+  color           : #fff;
+  background-color: #007bff;
+  border-color    : #007bff;
+}
+
+.btn-unpause {
+  color           : #fff;
+  background-color: #28a745;
+  border-color    : #28a745;
+}
+
+.card {
+  margin-top: 10%;
+  text-align: center;
+  z-index   : 2;
+}
+
+.card .card__body h1 {
+  font-size  : 7em;
+  font-weight: 1;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.card .card__body hr {
+  margin: 16px 0;
+  color : #e7e7e7;
+}
+
+.card .card__body h2 {
+  font-size  : 18px;
+  font-weight: 50;
+  color      : #808080;
+}
+
+.card .card__body .card__btns {
+  margin-top: 2em;
+}
+
+.effetc_box {
+  position: absolute;
+  top     : 2em;
+  overflow: hidden;
+  left    : -20em;
+}
+
+.custom-shape-divider-bottom-1598630478 {
+  position   : absolute;
+  bottom     : 0;
+  left       : 0;
+  width      : 100%;
+  overflow   : hidden;
+  line-height: 0;
+  transform  : rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1598630478 svg {
+  position: relative;
+  display : block;
+  width   : calc(154% + 1.3px);
+  height  : 150px;
+}
+
+.custom-shape-divider-bottom-1598630478 .shape-fill {
+  fill: #FFFFFF;
+}
+
+@media(max-width: 960px) {
+  .d-flex {
+    align-items  : flex-end;
+    padding-right: 25px;
+  }
+}
+
+@media(max-width: 656px) {
+  .effetc_box {
+    display: none;
+  }
+
+  .d-flex {
+    align-items  : center;
+    padding-right: 0;
+  }
+}
+
+@media(max-width: 440px){
+  .card {
+    margin-top: 25%;
+  }
 }
