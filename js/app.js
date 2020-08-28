@@ -1,32 +1,38 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     /**
      * Function with stopwatch logic.
     */
-    function watch(segundos = 0, minutos = 0) {
+    function watch() {
         const cron = document.querySelector('#cron')
-        const isActive = (cron.dataset.watch == 'true')
-
-        if(isActive){
-            setTimeout(() => {
-                segundos++
-        
-        
-                if (segundos < 10) {
-                    cron.innerHTML = `0${minutos}:0${segundos} `
-                }
-                else if (segundos < 60) {
-                    cron.innerHTML = `0${minutos}:${segundos} `
-                }
-                else if (segundos > 60) {
-                    minutos++
-                    segundos = 0
-                }
-
-                watch(segundos, minutos)
-            }, 1000)
+        const timeString = cron.dataset.time.split(':')
+        let time = {
+            minutos: parseInt(timeString[0]),
+            segundos: parseInt(timeString[1]),
         }
+
+        const timeToString = (minutos, segundos) => {
+            minutos =  `${minutos  < 10 ? '0' : ''}` + minutos
+            segundos = `${segundos < 10 ? '0' : ''}` + segundos
+
+            return `${minutos}:${segundos}`
+        }
+
+        setTimeout(() => {
+            if (cron.dataset.watch == 'true') {
+                time.segundos++
+
+                if (time.segundos > 60) {
+                    time.minutos++
+                    time.segundos = 0
+                }
+
+                cron.dataset.time = `${time.minutos}:${time.segundos}`
+                cron.innerText = timeToString(time.minutos, time.segundos)
+                watch()
+            }
+        }, 1000)
     }
-    
+
     // Start button
     const btnStart = document.querySelector("#btnStart")
     const btnPause = document.querySelector("#btnPause")
@@ -38,17 +44,18 @@ window.addEventListener('load', function() {
 
         setTimeout(() => {
             cron.dataset.watch = 'true'
+            cron.dataset.time = '00:00'
+            btnStart.innerText = 'Resetar'
             watch()
         }, 1000)
-
     })
 
     btnPause.addEventListener('click', () => {
         cron.dataset.watch = (cron.dataset.watch == 'false')
 
-        if(cron.dataset.watch == 'true'){
-            const time = cron.innerText.split(':')
-            watch( parseInt(time[1]), parseInt(time[0]) )
-        }
+        if (cron.dataset.watch == 'true') {
+            btnPause.innerText = 'Pausa'
+            watch()
+        } else btnPause.innerText = 'Retomar'
     })
 })
