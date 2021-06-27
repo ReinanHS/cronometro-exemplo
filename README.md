@@ -1,3 +1,3 @@
-# stopwatch
-A timer made with HTML, CSS and Javascript!
-xD
+# Exemplo de um cronômetro em HTML
+
+Cronômetro regressivo feito em html, javascript e css.
